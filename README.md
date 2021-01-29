@@ -18,7 +18,7 @@ Final hue-shifted image: LA∗B∗
 After the pre-processing the size of the dataset increased to `20540` images and it occupied `3.1` GB of space.
 
 ## 3. Model
-![image](/Gallery/ChatBot.png)
+![image](Images\PalletNet.jpeg)
 * Our model is divided into three parts: Feature Encoder, Recolouring Decoder and Discrimantor.
 * Feature Encoder is made up of ResNet blocks which extracts the content feature to a tensor of size `512x25x16`. 
 * Recolouring Decoder takes the target palette and content features as the input and outputs the final recoloured image.
@@ -35,7 +35,9 @@ There are two phases of training:
 
 We visually compare the generated and expected *'a'* and *'b'* components. 
 
-![image](/Gallery/ChatBot.png)
+
+
+![image](Images\Testing_Image.jpeg)
 
 
 ## Problems we faced:
