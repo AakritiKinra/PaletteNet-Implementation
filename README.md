@@ -50,12 +50,11 @@ We visually compare the generated and expected *'a'* and *'b'* components.
 
 ![image1](Images/Resut1.png)
 
+![image3](Images/download.png)
+
 ![image2](Images/Resut2.png)
 
 ![image3](Images/Resut3.png)
-
-![image3](Images/download.png)
-
 
 
 ## THANK YOU!
