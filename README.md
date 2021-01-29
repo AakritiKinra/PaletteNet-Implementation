@@ -6,11 +6,11 @@ PaletteNet is a deep neural network, which recolors an image according to a give
 
 ## Our project is broadly divided into three parts:
 ## 1. How we implemented it?
-We created our own dataset since this task requires both source image and corresponding palette. We scrapped 1043 high quality images from "https://www.design-seeds.com". This created a raw dataset of 1.1 GB which was stored on AWS S3.
+We created our own dataset since this task requires both source image and corresponding palette. We scrapped 1043 high-quality images from "https://www.design-seeds.com". This created a raw dataset of 1.1 GB which was stored on AWS S3.
 
 ## 2. Pre-processing
-a)Cropping-As the source image and pallete are attached we first need to separate them and then resize the image to [384,286].
-b)Hue-Shift-To train the model we created 20 varients of the image using the algorithm shown below. 
+a)Cropping-As the source image and palette are attached we first need to separate them and then resize the image to [384,286].
+b)Hue-Shift-To train the model we created 20 variants of the image using the algorithm shown below. 
 ```
 RGB -> LAB and cache L 
 RGB -> HSV -hue−shift-> H*SV -> LAB
@@ -20,16 +20,16 @@ After the pre-processing the size of the dataset increased to 20540 images and i
 
 ## 3. Model
 ![image](/Gallery/ChatBot.png)
-* Our model is divided into three parts: Feature Encoder, Recolouring Decoder and Discrimantor.
+* Our model is divided into three parts: Feature Encoder, Recoloring Decoder and Discrimantor.
 * Feature Encoder is made up of ResNet blocks which extracts the content feature to a tensor of size [512x25x16]. 
-* Recolouring Decoder takes the target palette and content features as the input and outputs the final recoloured image.
-* Discrimator improves the image quality using Adversial loss.
+* Recoloring Decoder takes the target palette and content features as the input and outputs the final recolored image.
+* Discriminator improves the image quality using Adversarial loss.
 
 ## Training:
 
 There are two phases of training:
-* In the first phase we train FE+RD using Euclidean loss
-* In the second phase we use a discrimantor to differentiate between original images(no hue-shift) and generated images. 
+* In the first phase, we train FE+RD using Euclidean loss
+* In the second phase, we use a discriminator to differentiate between original images(no hue-shift) and generated images. 
 * We are using the Adam optimizer with β1=0.5, lr=0.0002 and batch-size=12.
 
 ## Testing:
