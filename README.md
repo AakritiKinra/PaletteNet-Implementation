@@ -48,11 +48,13 @@ We visually compare the generated and expected *'a'* and *'b'* components.
 ## Results:
 
 
-![image1](/Gallery/ChatBot.png)
+![image1](Images/Resut1.png)
 
-![image2](/Gallery/ChatBot.png)
+![image2](Images/Resut2.png)
 
-![image3](/Gallery/ChatBot.png)
+![image3](Images/Resut3.png)
+
+![image3](Images/download.png)
 
 
 
