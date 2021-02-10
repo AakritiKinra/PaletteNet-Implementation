@@ -1,13 +1,23 @@
 # PaletteNet-Implementation
 
-This project was built as a part of the **RESCON** event hosted by SRM Machine Intelligence Community, in which we were asked to implement a research paper. Our team Phoneix choose **PaletteNet**: Image Recolorization with Given Color Palette", by Junho Cho, Sangdoo Yun, Kyoungmu Lee and Jin Young Choi.
+This project was built as a part of the **RESCON** event hosted by SRM Machine Intelligence Community, in which we were asked to implement a research paper. Our team Phoneix choose ` PaletteNet: Image Recolorization with Given Color Palette", by Junho Cho, Sangdoo Yun, Kyoungmu Lee and Jin Young Choi`. 
+
+[You can download the paper from here](https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Cho_PaletteNet_Image_Recolorization_CVPR_2017_paper.pdf
+)
+
+## Quick trial - https://colab.research.google.com/drive/1DqwgiGBmf14kGhsdCTcOl_FzvYilagoD#scrollTo=7JflO10d9TWZ
+
+	*  Go to the link and click connect on the top right.
+	*  Press the run button next to the first code block to run it. It will download the model files and weights.
+	*  You can run all the blocks using (CTRL + ENTER).	
+	*  Run all the blocks in a sequence. The last one will show you the re-colored image.
 
 PaletteNet is a deep neural network, which recolors an image according to a given target color palette. This takes two inputs a source image to be re-colored and a target palette. Human experts with a commercial software take on average 18 minutes to recolor an image, while PaletteNet automatically recolors plausible results in less than a second.
 
-## 1. How we implemented it?
+## How we implemented it?
 We created our own dataset since this task requires both source image and corresponding palette. We scrapped `1043` high-quality images from "https://www.design-seeds.com". This created a raw dataset of `1.1GB` which was stored on **AWS S3**.
 
-## 2. Pre-processing
+### Pre-processing
 1. Cropping-As the source image and palette are attached we first need to separate them and then resize the image to `384,286`.
 2. Hue-Shift-To train the model we created `20` variants of the image using the algorithm shown below. 
 
@@ -18,7 +28,7 @@ Final hue-shifted image: LA∗B∗
 ```
 After the pre-processing the size of the dataset increased to `20540` images and it occupied `3.1` GB of space.
 
-## 3. Model
+### Model
 
 =======
 ![image](Images/PalletNet.jpeg)
@@ -27,7 +37,7 @@ After the pre-processing the size of the dataset increased to `20540` images and
 * Recoloring Decoder takes the target palette and content features as the input and outputs the final recolored image.
 
 
-## Training:
+### Training:
 
 There are two phases of training:
 * In the first phase, we train FE+RD using Euclidean loss
@@ -35,7 +45,7 @@ There are two phases of training:
 * We are using the Adam optimizer with β1=`0.5`, lr=`0.0002` and batch-size=`12`.
 
 
-## Testing:
+### Testing:
 
 We visually compare the generated and expected *'a'* and *'b'* components. 
 
@@ -61,4 +71,3 @@ We visually compare the generated and expected *'a'* and *'b'* components.
 ![image3](Images/Resut3.png)
 
 
-## THANK YOU!
