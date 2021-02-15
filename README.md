@@ -5,7 +5,8 @@ This project was built as a part of the **RESCON** event hosted by SRM Machine I
 [You can download the paper from here](https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Cho_PaletteNet_Image_Recolorization_CVPR_2017_paper.pdf
 )
 
-## Quick trial - https://colab.research.google.com/drive/1DqwgiGBmf14kGhsdCTcOl_FzvYilagoD#scrollTo=7JflO10d9TWZ
+## Quick trial
+https://colab.research.google.com/drive/1DqwgiGBmf14kGhsdCTcOl_FzvYilagoD#scrollTo=7JflO10d9TWZ
 
 	*  Go to the link and click connect on the top right.
 	*  Press the run button next to the first code block to run it. It will download the model files and weights.
